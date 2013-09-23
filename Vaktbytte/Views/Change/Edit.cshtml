@@ -1,0 +1,81 @@
+﻿@model Vaktbytte.Models.Change
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Change</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.OwnerUserName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.OwnerUserName)
+                @Html.ValidationMessageFor(model => model.OwnerUserName, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.OwnerName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.OwnerName)
+                @Html.ValidationMessageFor(model => model.OwnerName, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Comments, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Comments)
+                @Html.ValidationMessageFor(model => model.Comments, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Start, new { @class = "control-label" })
+            <div class="controls">
+                <input type="text" class="datefieldboot" name="Start" value="@Model.Start.ToString("MM/dd/yyyy")" data-date='@Model.Start.ToString("MM/DD/YYYY")' data-date-format="mm/dd/yyyy" />
+
+
+                @*@Html.EditorFor(model => model.Start)*@
+                @Html.ValidationMessageFor(model => model.Start, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".datefieldboot").datepicker();
+    });
+</script>
+
+
+
+}
+

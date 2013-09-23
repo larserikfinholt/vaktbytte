@@ -1,0 +1,55 @@
+﻿@model Vaktbytte.Models.Change
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Change</legend>
+
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start)
+        </dd>
+
+    </dl>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

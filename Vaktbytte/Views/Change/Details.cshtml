@@ -1,0 +1,49 @@
+﻿@model Vaktbytte.Models.Change
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Change</legend>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start)
+        </dd>
+
+    </dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
